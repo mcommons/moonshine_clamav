@@ -1,0 +1,24 @@
+= Moonshine ClamAV
+
+ClamAV is an open source (GPL) antivirus engine designed for detecting Trojans, 
+viruses, malware and other malicious threats. It is the de facto standard for mail 
+gateway scanning. It provides a high performance mutli-threaded scanning daemon, 
+command line utilities for on demand file scanning, and an intelligent tool for 
+automatic signature updates. 
+
+=== A plugin for Moonshine[http://github.com/railsmachine/moonshine]
+
+This Moonshine plugin allows you to easily integrate ClamAV into your
+deployment.
+
+=== Instructions
+
+* <tt>script/plugin install git://github.com/mcommons/moonshine_clamav.git</tt>
+* Configure settings in <tt>config/moonshine.yml</tt> (see Configuration below)
+* Invoke the recipe(s) in the Moonshine manifest for your high availaibility resource
+    recipe :clamav
+
+=== Basic Configuration
+
+* ClamAC runs in cron mode, scanning the full file system each night
+* freshclam is used to download new virus definitions each night
